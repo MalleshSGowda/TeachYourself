@@ -1,0 +1,96 @@
+
+
+
+Linux command
+
+•	cd : change directory
+•	ls -lrt : list all files in the directory in reverse chronological order
+•	chmod -R +x  : recursively give execute permission to files in all directory and sub-directory
+•	chmod -R +r  : give read permission
+•	chmod -R +w : give write permission
+•	more : view content of a file page by page
+•	cat : see entire content of file.
+•	sed    : search and replace words or phrases in one or more file.
+•	grep  : find all lines in a file that have this phrase
+•	grep -v  : find all lines in a file that doesn’t have this phrase
+•	cut : tokenize a line into words using a delimiter and then get a specific word from the line 
+•	wc     :count of lines or words in a file
+•	for .. do ..done    
+•	if .. else  
+•	cp, rm , mv   : copy, remove and move 
+•	cp, rm, mv -I  : ask per permission while copying files.
+•	History : see the history of commands in the current session
+•	find : find a file 
+•	whoami : what is my userid
+•	which  : to find from which path, a file is being accessed while executing.
+•	head : print first x lines of a file.
+•	tail : print last x line of a file
+•	awk : do very complex programming
+•	a.sh >> a.out  : append the output to a file.
+•	a.sh  > a.out : output will get into a new file
+•	a.sh | tee -a a.out  : show the output in console and also write into an output file
+•	a.sh 1>a.out 2>a.err : output into a.out and any errors into a.err
+•	a.sh | b.sh : output of a.sh becomes an input to b.sh
+•	.a.sh  : this is a hidden file as it starts with .
+•	export  db_schema=AS_PROD   : set a global variable called db_schema to AS_PROD
+•	source a.sh : execute a.sh and any variables set inside a.sh is used as global variable. You can create shortcuts to different directories like SOLUS_HOME=/data/solus/SOLUS_INSTALL_FILES
+•	.  represents current directory
+•	mysql -u<user> -p<passwd> -h<hostip> --database=<db_schema_name> < a.sql > a.sql.out  execute a.sql against a database and output is put into a file a.sql.out
+•	scp : copy from another server to current server
+•	ssh : login to another server
+•	su – <user> : login as another user
+
+
+i	Insert at cursor (goes into insert mode)
+a	Write after cursor (goes into insert mode)
+A	Write at the end of line (goes into insert mode)
+ESC	Terminate insert mode
+u	Undo last change
+U	Undo all changes to the entire line
+o	Open a new line (goes into insert mode)
+dd
+3dd	Delete line
+Delete 3 lines.
+D	Delete contents of line after the cursor
+C	Delete contents of a line after the cursor and insert new text. Press ESC key to end insertion.
+dw
+4dw	Delete word
+Delete 4 words
+cw	Change word
+x	Delete character at the cursor
+r	Replace character
+R	Overwrite characters from cursor onward
+s	Substitute one character under cursor continue to insert
+S	Substitute entire line and begin to insert at the beginning of the line
+~	Change case of individual character
+
+How to Check Memory Usage by different processes
+ps -o pid,user,%mem,command ax | sort -b -k3 -r | more
+
+## renaming files
+
+currdate=$(date +%d%m%Y)
+echo $currdate
+mv Inc_BILLDETAILS_AE_$currdate.txt Incr_Bill_Details.txt
+mv Inc_MH_AE_$currdate.txt Incr_Feedback.txt
+mv Inc_PRODUCT_AE_$currdate.txt Incr_Product_Master.txt
+mv Inc_CUSTEOMER_AE_$currdate.txt Incr_Customer_Master.txt
+mv Inc_STORE_AE_$currdate.txt Incr_Store_Master.txt
+
+Merge the files removing heading
+aa=`head -1 AS_Bill_Details_01102019.txt`
+head -1 AS_Bill_Details_01102019.txt
+for i in `ls -1 AS_Bill_Details*.txt`
+do
+grep -v $aa $i
+done
+ps -o pid,user,%mem,command ax | sort -b -k3 -r | more
+
+
+& run in backgorund
+2 > redirect 
+bg
+fg
+jobs 
+iptables
+crontab
